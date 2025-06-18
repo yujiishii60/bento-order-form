@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -165,63 +164,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>弁当注文フォーム</title>
-  <style>
-    body { font-family: sans-serif; padding: 1em; max-width: 480px; margin: auto; }
-    h1 { font-size: 1.5em; }
-    label { display: block; margin-top: 1em; }
-    input[type="number"] { width: 100%; padding: 0.5em; }
-    button { margin-top: 2em; padding: 1em; width: 100%; font-size: 1.1em; }
-    .error { color: red; margin-top: 1em; }
-  </style>
-</head>
-<body>
-  <h1>弁当注文フォーム</h1>
-
-  <form id="bentoForm">
-    <label>お名前
-      <input type="text" name="name" required>
-    </label>
-
-    <!-- ★ここを変更：お弁当名などは仮名称（将来の正式名に変更予定） -->
-    <label>弁当A（からあげ）個数
-      <input type="number" name="bentoA" min="0" value="0">
-    </label>
-
-    <label>弁当B（さば塩）個数
-      <input type="number" name="bentoB" min="0" value="0">
-    </label>
-
-    <label>弁当C（日替わり）個数
-      <input type="number" name="bentoC" min="0" value="0">
-    </label>
-
-    <label>電話番号（任意）
-      <input type="tel" name="phone">
-    </label>
-
-    <!-- ★ここを追加：お渡し時間 -->
-    <label for="pickup">お渡し時間を選択してください：</label>
-    <select id="pickup" name="pickup" required>
-      <option value="">-- 時間を選択 --</option>
-      <option value="11:30">11:30</option>
-      <option value="12:00">12:00</option>
-      <option value="12:30">12:30</option>
-      <option value="13:00">13:00</option>
-    </select>
-
-    <div class="error" id="errorMessage"></div>
-
-    <button type="submit">送信</button>
-  </form>
-
-  <script src="script.js"></script>
-</body>
-</html>
->>>>>>> e66e9c89a6cde62eb8615f45f2ad4f8f9a6c26c1
