@@ -22,7 +22,6 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
     return;
   }
 
-  // GASへ送信
   fetch('https://script.google.com/macros/s/AKfycbwsC5__q4XCFmtiaXyjxvg0-KQr4imh1bbm1qVWE_3naq9IKf7IW767jIvjCA78zj2U/exec', {
     method: 'POST',
     mode: 'no-cors',
