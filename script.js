@@ -1,15 +1,18 @@
-const MAX_TOTAL = 5;  // 最大合計注文数（仮設定）
+const MAX_TOTAL = 5;
 
 document.getElementById('bentoForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const form = e.target;
-  const bentoA = parseInt(form.bentoA.value) || 0;
-  const bentoB = parseInt(form.bentoB.value) || 0;
-  const bentoC = parseInt(form.bentoC.value) || 0;
-  const bentoD = parseInt(form.bentoD.value) || 0;
-  const bentoE = parseInt(form.bentoE.value) || 0;
-  const bentoF = parseInt(form.bentoF.value) || 0;
+  const bentoA = parseInt(document.getElementById("bentoA").value) || 0;
+  const bentoB = parseInt(document.getElementById("bentoB").value) || 0;
+  const bentoC = parseInt(document.getElementById("bentoC").value) || 0;
+  const bentoD = parseInt(document.getElementById("bentoD").value) || 0;
+  const bentoE = parseInt(document.getElementById("bentoE").value) || 0;
+  const bentoF = parseInt(document.getElementById("bentoF").value) || 0;
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const pickup = document.getElementById("pickup").value;
 
   const total = bentoA + bentoB + bentoC + bentoD + bentoE + bentoF;
 
@@ -19,15 +22,15 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
     return;
   }
 
-  // Google Apps Script へ送信
+  // GASへ送信
   fetch('https://script.google.com/macros/s/AKfycbwsC5__q4XCFmtiaXyjxvg0-KQr4imh1bbm1qVWE_3naq9IKf7IW767jIvjCA78zj2U/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: form.name.value,
-      phone: form.phone.value,
-      pickup: form.pickup.value,
+      name: name,
+      phone: phone,
+      pickup: pickup,
       bentoA: bentoA,
       bentoB: bentoB,
       bentoC: bentoC,
@@ -38,6 +41,6 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
     })
   });
 
-  form.reset();
+  document.getElementById("bentoForm").reset();
   alert('注文を受け付けました！');
 });
