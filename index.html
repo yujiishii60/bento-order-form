@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>弁当注文フォーム</title>
+  <style>
+  body {
+    font-family: sans-serif;
+    padding: 1em;
+    max-width: 480px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  label {
+    display: block;
+    margin-top: 1em;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 2em;
+    padding: 1em;
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  .error {
+    color: red;
+    margin-top: 1em;
+  }
+
+  /* ⬇️ 弁当グリッド用の追加スタイル */
+  .bento-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .bento-card {
+    width: 45%;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 1px 1px 5px #ccc;
+    background: #fff;
+  }
+
+  .bento-card img {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .bento-card label {
+    display: block;
+    margin: 6px 0 4px;
+    font-weight: bold;
+  }
+
+  .bento-card input {
+    width: 60px;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .bento-card {
+      width: 100%;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <h1>弁当注文フォーム</h1>
+
+  <form id="bentoForm">
+    <label>お名前
+      <input type="text" name="name" required>
+    </label>
+
+    <!-- ★ここを変更：お弁当名などは仮名称（将来の正式名に変更予定） -->
+    <div class="bento-grid">
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=A弁当" alt="弁当A">
+        <label for="bentoA">弁当A（からあげ）</label>
+        <input type="number" name="bentoA" min="0" max="99" value="0">
+      </div>
+
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=B弁当" alt="弁当B">
+        <label for="bentoB">弁当B（さば塩）</label>
+        <input type="number" name="bentoB" min="0" max="99" value="0">
+      </div>
+
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=C弁当" alt="弁当C">
+        <label for="bentoC">弁当C（日替わり）</label>
+        <input type="number" name="bentoC" min="0" max="99" value="0">
+      </div>
+
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=D弁当" alt="弁当D">
+        <label for="bentoD">弁当D（カレー）</label>
+        <input type="number" name="bentoD" min="0" max="99" value="0">
+      </div>
+
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=E弁当" alt="弁当E">
+        <label for="bentoE">弁当E（のり）</label>
+        <input type="number" name="bentoE" min="0" max="99" value="0">
+      </div>
+
+      <div class="bento-card">
+        <img src="https://via.placeholder.com/150x100?text=F弁当" alt="弁当F">
+        <label for="bentoF">弁当F（しょうが焼き）</label>
+        <input type="number" name="bentoF" min="0" max="99" value="0">
+      </div>
+    </div>
+
+    <!-- <label>弁当A（からあげ）個数
+      <input type="number" name="bentoA" min="0" value="0">
+    </label>
+
+    <label>弁当B（さば塩）個数
+      <input type="number" name="bentoB" min="0" value="0">
+    </label>
+
+    <label>弁当C（日替わり）個数
+      <input type="number" name="bentoC" min="0" value="0">
+    </label> -->
+
+    <label>電話番号（任意）
+      <input type="tel" name="phone">
+    </label>
+
+    <!-- ★ここを追加：お渡し時間 -->
+    <label for="pickup">お渡し時間を選択してください：</label>
+    <select id="pickup" name="pickup" required>
+      <option value="">-- 時間を選択 --</option>
+      <option value="11:30">11:30</option>
+      <option value="12:00">12:00</option>
+      <option value="12:30">12:30</option>
+      <option value="13:00">13:00</option>
+    </select>
+
+    <div class="error" id="errorMessage"></div>
+
+    <button type="submit">送信</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
