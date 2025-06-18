@@ -1,153 +1,132 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>弁当注文フォーム</title>
   <style>
-  body {
-    font-family: sans-serif;
-    padding: 1em;
-    max-width: 480px;
-    margin: auto;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  label {
-    display: block;
-    margin-top: 1em;
-  }
-
-  input[type="number"] {
-    width: 100%;
-    padding: 0.5em;
-    text-align: center;
-  }
-
-  button {
-    margin-top: 2em;
-    padding: 1em;
-    width: 100%;
-    font-size: 1.1em;
-  }
-
-  .error {
-    color: red;
-    margin-top: 1em;
-  }
-
-  /* ⬇️ 弁当グリッド用の追加スタイル */
-  .bento-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .bento-card {
-    width: 45%;
-    max-width: 200px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 8px;
-    text-align: center;
-    box-shadow: 1px 1px 5px #ccc;
-    background: #fff;
-  }
-
-  .bento-card img {
-    width: 100%;
-    border-radius: 4px;
-  }
-
-  .bento-card label {
-    display: block;
-    margin: 6px 0 4px;
-    font-weight: bold;
-  }
-
-  .bento-card input {
-    width: 60px;
-    text-align: center;
-  }
-
-  @media (max-width: 500px) {
-    .bento-card {
-      width: 100%;
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+      max-width: 480px;
+      margin: auto;
     }
-  }
-</style>
 
+    h1 {
+      font-size: 1.5em;
+    }
 
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 2em;
+      padding: 1em;
+      width: 100%;
+      font-size: 1.1em;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1em;
+    }
+
+    .bento-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 1em;
+    }
+
+    .bento-card {
+      width: 45%;
+      max-width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 1px 1px 5px #ccc;
+      background: #fff;
+    }
+
+    .bento-card img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .bento-card label {
+      display: block;
+      margin: 6px 0 4px;
+      font-weight: bold;
+    }
+
+    .bento-card input {
+      width: 60px;
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .bento-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1>弁当注文フォーム</h1>
 
   <form id="bentoForm">
-    <label>お名前
-      <input type="text" name="name" required>
-    </label>
 
-    <!-- ★ここを変更：お弁当名などは仮名称（将来の正式名に変更予定） -->
+    <!-- 🍱 商品選択 -->
     <div class="bento-grid">
       <div class="bento-card">
-        <img src="bento_a_karaage.png" alt="弁当A">
-        <label for="bentoA">弁当A（からあげ）</label>
-        <input type="number" name="bentoA" min="0" max="99" value="0">
+        <img src="bento_a_karaage.png" alt="からあげ弁当">
+        <label for="bentoA">からあげ弁当</label>
+        <input type="number" id="bentoA" name="bentoA" min="0" max="99" value="0">
       </div>
-
       <div class="bento-card">
-        <img src="bento_b_sabashio.png" alt="弁当B">
-        <label for="bentoB">弁当B（さば塩）</label>
-        <input type="number" name="bentoB" min="0" max="99" value="0">
+        <img src="bento_b_sabashio.png" alt="さば塩弁当">
+        <label for="bentoB">さば塩弁当</label>
+        <input type="number" id="bentoB" name="bentoB" min="0" max="99" value="0">
       </div>
-
       <div class="bento-card">
-        <img src="bento_c_mixed.png" alt="弁当C">
-        <label for="bentoC">弁当C（日替わり）</label>
-        <input type="number" name="bentoC" min="0" max="99" value="0">
+        <img src="bento_c_mixed.png" alt="日替わり弁当">
+        <label for="bentoC">日替わり弁当</label>
+        <input type="number" id="bentoC" name="bentoC" min="0" max="99" value="0">
       </div>
-
       <div class="bento-card">
-        <img src="bento_d_curry.png" alt="弁当D">
-        <label for="bentoD">弁当D（カレー）</label>
-        <input type="number" name="bentoD" min="0" max="99" value="0">
+        <img src="bento_d_curry.png" alt="カレー弁当">
+        <label for="bentoD">カレー弁当</label>
+        <input type="number" id="bentoD" name="bentoD" min="0" max="99" value="0">
       </div>
-
       <div class="bento-card">
-        <img src="bento_e_nori.png" alt="弁当E">
-        <label for="bentoE">弁当E（のり）</label>
-        <input type="number" name="bentoE" min="0" max="99" value="0">
+        <img src="bento_e_nori.png" alt="のり弁当">
+        <label for="bentoE">のり弁当</label>
+        <input type="number" id="bentoE" name="bentoE" min="0" max="99" value="0">
       </div>
-
       <div class="bento-card">
-        <img src="bento_f_shogayaki.png" alt="弁当F">
-        <label for="bentoF">弁当F（しょうが焼き）</label>
-        <input type="number" name="bentoF" min="0" max="99" value="0">
+        <img src="bento_f_shogayaki.png" alt="しょうが焼き弁当">
+        <label for="bentoF">しょうが焼き弁当</label>
+        <input type="number" id="bentoF" name="bentoF" min="0" max="99" value="0">
       </div>
     </div>
 
-    <!-- <label>弁当A（からあげ）個数
-      <input type="number" name="bentoA" min="0" value="0">
-    </label>
-
-    <label>弁当B（さば塩）個数
-      <input type="number" name="bentoB" min="0" value="0">
-    </label>
-
-    <label>弁当C（日替わり）個数
-      <input type="number" name="bentoC" min="0" value="0">
-    </label> -->
-
-    <label>電話番号（任意）
-      <input type="tel" name="phone">
-    </label>
-
-    <!-- ★ここを追加：お渡し時間 -->
-    <label for="pickup">お渡し時間を選択してください：</label>
+    <!-- ⏰ お渡し時間 -->
+    <label for="pickup">お渡し時間を選択してください（※必須）</label>
     <select id="pickup" name="pickup" required>
       <option value="">-- 時間を選択 --</option>
       <option value="11:30">11:30</option>
@@ -156,8 +135,19 @@
       <option value="13:00">13:00</option>
     </select>
 
+    <!-- 👤 お名前 -->
+    <label>お名前（※必須）
+      <input type="text" name="name" required>
+    </label>
+
+    <!-- ☎ 電話番号 -->
+    <label>電話番号（任意）
+      <input type="tel" name="phone">
+    </label>
+
     <div class="error" id="errorMessage"></div>
 
+    <!-- ✅ 送信 -->
     <button type="submit">送信</button>
   </form>
 
