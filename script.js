@@ -14,14 +14,12 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
 
   const total = bentoA + bentoB + bentoC + bentoD + bentoE + bentoF;
 
-  // ✅ 上限チェック（最大5個）
   if (total > MAX_TOTAL) {
-  document.getElementById('errorMessage').textContent =
-    `注文合計は最大${MAX_TOTAL}個までです（現在：${total}個）`;
-
+    document.getElementById('errorMessage').textContent =
+      `注文合計は最大${MAX_TOTAL}個までです（現在：${total}個）`;
     return;
   } else {
-    document.getElementById('errorMessage').textContent = ''; // エラー表示クリア
+    document.getElementById('errorMessage').textContent = '';
   }
 
   const data = new URLSearchParams({
@@ -42,7 +40,7 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: data
+    body: data.toString()
   });
 
   form.reset();
