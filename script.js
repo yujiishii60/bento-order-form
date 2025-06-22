@@ -35,7 +35,7 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
     total: total
   });
 
-  fetch('https://script.google.com/macros/s/AKfycbz_SQh2CwJ8Hi3qhng3WUo9IYMqMMYwI9coKyYfnGYRoUc5UagKliHLjZxw4ZF3DpFz/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyaV9sog2nxc7rRQD6uDeGI-ctUP_tIJvuQva45AFfseF7fcC3Kn-2j9KgJZIz2Jdaa/exec', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
