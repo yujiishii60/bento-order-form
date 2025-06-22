@@ -25,6 +25,7 @@ document.getElementById('bentoForm').addEventListener('submit', function (e) {
   const data = new URLSearchParams({
     name: form.name.value,
     phone: form.phone.value,
+    email: form.email.value,  // ← これを追加！
     pickup: form.pickup.value,
     bentoA: bentoA,
     bentoB: bentoB,
